@@ -1,0 +1,12 @@
+<div
+  class="bg-white shadow-md border rounded-xl p-6 flex flex-col relative w-64"
+>
+  <div class="mx-auto mt-2">
+    <img [src]="user().avatar" class="w-[200px] h-[100px] object-contain" />
+  </div>
+  <div class="flex flex-col mt-2">
+    <span class="text-md font-bold">{{ "ID:" + user().id }}</span>
+    <span class="text-md font-bold">{{ "Name:" + user().name }}</span>
+    <span class="text-sm">{{ "Email:" + user().email }}</span>
+  </div>
+</div>
