@@ -1,0 +1,72 @@
+<div class="flex justify-center items-center h-screen">
+  <!-- <h1 class="text-5xl center top-0">Exercise 1</h1> -->
+  <div class="bg-white border p-8 rounded-lg shadow-lg w-96 mb-100">
+    <h2 class="text-2xl font-bold mb-4 text-center">User Form</h2>
+
+    <form [formGroup]="profileForm" (ngSubmit)="handleSubmit()">
+      <!-- Name Input -->
+      <div class="mb-4">
+        <label for="name" class="block text-gray-700">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          formControlName="name"
+          required="true"
+          placeholder="Name"
+        />
+        <!-- Error Message for Name Field -->
+        @if (name?.invalid && (name?.dirty || name?.touched)){
+        <div class="text-sm text-red-700">
+          @if (name?.hasError('required')) {
+          <div>Name is required.</div>
+          }
+        </div>
+        }
+      </div>
+
+      <!-- Email Input -->
+      <div class="mb-4">
+        <label for="email" class="block text-gray-700">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+          formControlName="email"
+          placeholder="example@example.com"
+        />
+        @if (email?.invalid && (email?.dirty || email?.touched)){
+        <div class="text-sm text-red-700">
+          @if (email?.hasError('required')) {
+          <div>Email is required.</div>
+          } @if (email?.hasError('email') || email?.hasError('pattern')){
+          <div>Email is invalid.</div>
+          }
+        </div>
+        }
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button
+          type="submit"
+          class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
+          [class]="!profileForm.valid ? 'opacity-40' : 'opacity-100'"
+          [disabled]="!profileForm.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+    <div></div>
+  </div>
+  <!-- <button
+    type="button"
+    class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
+    routerLink="/exercise-2"
+  >
+    Next Exercise
+  </button> -->
+</div>
