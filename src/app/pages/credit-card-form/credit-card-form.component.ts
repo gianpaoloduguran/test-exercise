@@ -10,6 +10,7 @@ import { DisableCutCopyPasteDirective } from '../../directives/disable-cut-copy-
 import { formatCardNumber } from '../../utils/formatCardNumber';
 import { CreditCardComponentComponent } from './credit-card-component/credit-card-component.component';
 import { RouterLink } from '@angular/router';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-credit-card-form',
@@ -19,6 +20,7 @@ import { RouterLink } from '@angular/router';
     DisableCutCopyPasteDirective,
     CreditCardComponentComponent,
     RouterLink,
+    HeaderComponent,
   ],
   templateUrl: './credit-card-form.component.html',
   styles: `

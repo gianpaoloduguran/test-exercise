@@ -7,10 +7,11 @@ import {
   FormControl,
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-user-form',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, HeaderComponent],
   templateUrl: './user-form.component.html',
   styles: ``,
 })

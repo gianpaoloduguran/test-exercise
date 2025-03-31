@@ -3,11 +3,13 @@ import { UserService } from '../../services/user.service';
 import { UserList } from '../../models/users.model';
 import { UserCardComponent } from './user-card/user-card.component';
 import { RouterLink } from '@angular/router';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-user-list',
-  imports: [UserCardComponent, RouterLink],
+  imports: [UserCardComponent, RouterLink, HeaderComponent],
   template: `
+    <app-header title="User List" />
     <h1 class="text-3xl text-gray-800 text-center m-10">List of Users</h1>
     <div class="flex justify-center">
       <div

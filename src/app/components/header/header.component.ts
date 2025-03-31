@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,10 +9,12 @@ import { RouterLink } from '@angular/router';
       class="bg-slate-100 px-4 py-3 shadow-md flex justify-between items-center"
     >
       <button class="text-xl font-bold cursor-pointer" routerLink="/">
-        Test Exercise
+        {{ title() }}
       </button>
     </div>
   `,
   styles: ``,
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  title = input.required<string>();
+}
