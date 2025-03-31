@@ -5,7 +5,6 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 export class MaskCcNumberDirective {
   @Input() maskwith = 'X';
-  // @Input() maskRegex = /.(?=.{4})/g;
   @Input() maskRegex = /./g;
 
   private value: string = '';
@@ -26,19 +25,17 @@ export class MaskCcNumberDirective {
     this.value = this.element.value;
   }
 
-  @HostListener('blur')
+  @HostListener('blur') //maskdata on blur
   onBlur() {
     this.maskData();
   }
 
-  @HostListener('focus')
+  @HostListener('focus') //unmask on focus
   onFocus() {
     this.unmaskData();
   }
 
   maskData() {
-    //masking the data except last 4 digits using X.
-    //You can customize this as it is input to the directive
     this.element.value = this.element.value.replace(
       this.maskRegex,
       this.maskwith
