@@ -38,7 +38,7 @@ export class AddressFormComponent {
       street: ['', Validators.required],
       city: ['', Validators.required],
       state: ['', Validators.required],
-      zipCode: ['', [Validators.required, Validators.pattern('^[0-9]{5}$')]],
+      zipCode: ['', [Validators.required, Validators.pattern('^[0-9]$')]],
     });
     this.fields.push(fieldGroup);
   }
@@ -55,8 +55,6 @@ export class AddressFormComponent {
    * Submits the form and logs its current value to the console.
    */
   submitForm() {
-    console.log('test', this.addressForm.value);
-    // Format this
     alert(`Hello ${this.addressForm.value.name} your address is submitted.`);
   }
   get name() {
