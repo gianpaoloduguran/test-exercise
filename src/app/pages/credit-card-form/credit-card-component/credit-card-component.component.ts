@@ -4,11 +4,11 @@ import { Component, Input, input } from '@angular/core';
   selector: 'app-credit-card-component',
   imports: [],
   template: `
-    <div class="credit-card-box relative">
+    <div class="relative">
       <div
         class="p-3 absolute inset-0 flex flex-col justify-between text-white"
       >
-        <h3 class="logo text-lg font-bold absolute right-9 top-11">
+        <h3 class="text-lg font-bold absolute right-9 top-11">
           Blockbuster Bank Inc.
         </h3>
 
