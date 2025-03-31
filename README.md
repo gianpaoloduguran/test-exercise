@@ -1,6 +1,7 @@
 # Exercise
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+This is a simple Test Exercise to test Angular Capabilities.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5 and node version 22.14.0.
 
 ## Development server
 
