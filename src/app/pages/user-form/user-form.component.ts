@@ -25,7 +25,9 @@ export class UserFormComponent {
   });
 
   handleSubmit() {
-    alert('Name:' + this.profileForm.value.name);
+    alert(
+      `Name: ${this.profileForm.value.name} \n Email: ${this.profileForm.value.email}`
+    );
   }
   get name() {
     return this.profileForm.get('name');

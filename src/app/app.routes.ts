@@ -3,6 +3,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { CreditCardFormComponent } from './pages/credit-card-form/credit-card-form.component';
 import { UserFormComponent } from './pages/user-form/user-form.component';
+import { AddressFormComponent } from './pages/address-form/address-form.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: 'exercise-3',
     component: UserFormComponent,
+  },
+  {
+    path: 'exercise-4',
+    component: AddressFormComponent,
   },
   {
     path: 'exercise-5',

@@ -1,0 +1,242 @@
+<form [formGroup]="addressForm" (ngSubmit)="submitForm()">
+  <div class="m-5">
+    <div class="border border-gray-900/10 p-12">
+      <h2 class="text-base/7 font-semibold text-gray-900">Address Form</h2>
+      <p class="mt-1 text-sm/6 text-gray-600">
+        This form will allow you to add additional addresses.
+      </p>
+
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+          <label for="name" class="block text-sm/6 font-medium text-gray-900"
+            >Name</label
+          >
+          <div class="mt-2">
+            <div
+              class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600"
+            >
+              <input
+                formControlName="name"
+                type="text"
+                name="name"
+                id="name"
+                class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-0 sm:text-sm/6"
+                placeholder="Name"
+              />
+            </div>
+            @if (name?.invalid && (name?.dirty || name?.touched)){
+            <div class="text-sm text-red-700">
+              @if (name?.hasError('required')) {
+              <div>Name is required.</div>
+              }
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 grid grid-cols-3 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <ng-container formArrayName="fields">
+          @for(field of fields.controls; let i = $index; track field) {
+          <ng-container [formGroupName]="i">
+            <div class="sm:col-span-2">
+              <label
+                for="label"
+                class="block text-sm/6 font-medium text-gray-900"
+                >Street</label
+              >
+              <div class="mt-2">
+                <div
+                  class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600"
+                >
+                  <input
+                    formControlName="street"
+                    type="text"
+                    name="street"
+                    id="street"
+                    class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-0 sm:text-sm/6"
+                  />
+                </div>
+                @if (field.get("street")?.invalid && (field.get("street")?.dirty
+                || field.get("street")?.touched)){
+                <div class="text-sm text-red-700">
+                  @if (field.get("street")?.hasError('required')) {
+                  <div>Street is required.</div>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="city"
+                class="block text-sm/6 font-medium text-gray-900"
+                >City</label
+              >
+              <div class="mt-2">
+                <div
+                  class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600"
+                >
+                  <input
+                    formControlName="city"
+                    type="text"
+                    name="city"
+                    id="city"
+                    class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-0 sm:text-sm/6"
+                  />
+                </div>
+                @if (field.get("city")?.invalid && (field.get("city")?.dirty ||
+                field.get("city")?.touched)){
+                <div class="text-sm text-red-700">
+                  @if (field.get("city")?.hasError('required')) {
+                  <div>City is required.</div>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label
+                for="state"
+                class="block text-sm/6 font-medium text-gray-900"
+                >State</label
+              >
+              <div class="mt-2">
+                <div
+                  class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600"
+                >
+                  <input
+                    formControlName="state"
+                    type="text"
+                    name="state"
+                    id="state"
+                    class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-0 sm:text-sm/6"
+                  />
+                </div>
+                @if (field.get("state")?.invalid && (field.get("state")?.dirty
+                || field.get("state")?.touched)){
+                <div class="text-sm text-red-700">
+                  @if (field.get("state")?.hasError('required')) {
+                  <div>State is required.</div>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label
+                for="zipCode"
+                class="block text-sm/6 font-medium text-gray-900"
+                >Zip Code</label
+              >
+              <div class="mt-2">
+                <div
+                  class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600"
+                >
+                  <input
+                    formControlName="zipCode"
+                    type="text"
+                    name="zipCode"
+                    id="zipCode"
+                    class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-0 sm:text-sm/6"
+                    maxlength="5"
+                  />
+                </div>
+                @if (field.get("zipCode")?.invalid &&
+                (field.get("zipCode")?.dirty || field.get("zipCode")?.touched)){
+                <div class="text-sm text-red-700">
+                  @if (field.get("zipCode")?.hasError('required')) {
+                  <div>Zip Code is required.</div>
+                  } @if (field.get("zipCode")?.hasError('pattern')) {
+                  <div>Zip Code is invalid.</div>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+          </ng-container>
+
+          <div class="sm:col-span-2 flex items-end">
+            <button
+              type="button"
+              (click)="removeField(i)"
+              class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Remove
+            </button>
+          </div>
+          }
+        </ng-container>
+      </div>
+
+      <button
+        type="button"
+        (click)="addField()"
+        class="rounded-md bg-indigo-600 mt-3 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        Add Address
+      </button>
+
+      <div class="mt-6 flex items-center justify-end gap-x-6">
+        <button
+          type="submit"
+          class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
+          [class]="!addressForm.valid ? 'opacity-40' : 'opacity-100'"
+          [disabled]="!addressForm.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div
+  class="fixed left-1/2 bottom-5 -translate-x-1/2 max-w-lg flex justify-center"
+>
+  <div class="flex flex-row">
+    <button
+      type="button"
+      class="bg-gray-800 text-white rounded-l-md border-r border-gray-100 hover:bg-gray-700/80 cursor-pointer px-3 py-2"
+      routerLink="/exercise-3"
+    >
+      <div class="flex flex-row align-middle">
+        <svg
+          class="w-5 mr-2"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+        <p class="ml-2">Prev</p>
+      </div>
+    </button>
+    <button
+      type="button"
+      class="bg-gray-800 text-white rounded-r-md border-l border-gray-200 hover:bg-gray-700/80 cursor-pointer px-3 py-2"
+      routerLink="/exercise-5"
+    >
+      <div class="flex flex-row align-middle">
+        <span class="mr-2">Next</span>
+        <svg
+          class="w-5 ml-2"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </div>
+    </button>
+  </div>
+</div>
