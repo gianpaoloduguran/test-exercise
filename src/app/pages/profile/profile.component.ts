@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, input } from '@angular/core';
 import {
   ReactiveFormsModule,
   FormGroup,
@@ -15,13 +15,13 @@ import { RouterLink } from '@angular/router';
   styles: ``,
 })
 export class ProfileComponent {
+  name = input.required<string>();
+  email = input.required<string>();
   // profileForm = new FormGroup({
   //   name: new FormControl('', Validators.required),
   //   email: new FormControl('', [Validators.required, Validators.email]),
   // });
   // userService = inject(UserService);
-  @Input({ required: true }) user!: string;
-  @Input({ required: true }) email!: string;
   // handleSubmit() {
   //   alert(this.profileForm.value.name + ' | ' + this.profileForm.value.email);
   //   if (this.profileForm.value.name && this.profileForm.value.email) {
