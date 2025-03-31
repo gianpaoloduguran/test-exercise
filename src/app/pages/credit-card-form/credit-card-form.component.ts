@@ -9,6 +9,7 @@ import { MaskCcNumberDirective } from '../../directives/mask-cc-number.directive
 import { DisableCutCopyPasteDirective } from '../../directives/disable-cut-copy-paste.directive';
 import { formatCardNumber } from '../../utils/formatCardNumber';
 import { CreditCardComponentComponent } from './credit-card-component/credit-card-component.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-credit-card-form',
@@ -17,6 +18,7 @@ import { CreditCardComponentComponent } from './credit-card-component/credit-car
     MaskCcNumberDirective,
     DisableCutCopyPasteDirective,
     CreditCardComponentComponent,
+    RouterLink,
   ],
   templateUrl: './credit-card-form.component.html',
   styles: `
