@@ -1,119 +1,116 @@
-<div class="flex justify-center items-center h-screen">
-  <!-- <h1 class="text-5xl center top-0">Exercise 1</h1> -->
-  <div class="bg-white border p-8 rounded-lg shadow-lg w-96">
-    <h2 class="text-2xl font-bold mb-4 text-center">Credit Card Form</h2>
-
-    <form [formGroup]="creditCardForm" (ngSubmit)="handleSubmit()">
-      <!-- Name Input -->
-      <div class="mb-4">
-        <label for="name" class="block text-gray-700">Card Holder Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-          formControlName="name"
-          placeholder="Card Holder's Name"
-        />
-      </div>
-      <!-- <div @if="name.errors?.['required']">Name is required.</div> -->
-
-      <!-- Email Input -->
-      <div class="mb-4">
-        <label for="ccnumber" class="block text-gray-700"
-          >Credit Card number</label
-        >
-        <input
-          type="text"
-          id="ccnumber"
-          name="ccnumber"
-          class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-          formControlName="ccnumber"
-          inputmode="numeric"
-          appMaskCcNumber
-          appDisableCutCopyPaste
-          min="0"
-          max="9"
-          placeholder="#### - #### - #### - ####"
-          maxlength="16"
-        />
-      </div>
-      <div class="mb-4">
-        <label for="cvv" class="block text-gray-700">CVV</label>
-        <input
-          type="text"
-          id="cvv"
-          name="cvv"
-          class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-          formControlName="cvv"
-          inputmode="numeric"
-          appDisableCutCopyPaste
-          min="0"
-          max="9"
-          maxlength="3"
-          placeholder="###"
-        />
-      </div>
-      <div class="mb-4">
-        <label for="expiryMonth" class="block text-gray-700"
-          >Expiry Month</label
-        >
-        <input
-          type="text"
-          id="expiryMonth"
-          name="expiryMonth"
-          class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-          formControlName="expiryMonth"
-          inputmode="numeric"
-          appDisableCutCopyPaste
-          min="0"
-          max="9"
-          maxlength="2"
-          placeholder="##"
-        />
-      </div>
-      <div class="mb-4">
-        <label for="expiryYear" class="block text-gray-700">Expiry Year</label>
-        <input
-          type="text"
-          id="expiryYear"
-          name="expiryYear"
-          class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-          formControlName="expiryYear"
-          inputmode="numeric"
-          appDisableCutCopyPaste
-          min="0"
-          max="9"
-          maxlength="4"
-          placeholder="####"
-        />
-      </div>
-
-      <!-- Submit Button -->
-      <div>
-        <button
-          type="submit"
-          class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
-          [class]="!creditCardForm.valid ? 'opacity-40' : 'opacity-100'"
-          [disabled]="!creditCardForm.valid"
-        >
-          Submit
-        </button>
-      </div>
-    </form>
-    <app-credit-card-component
-      [cardNumber]="cardNumber"
-      [cardHolderName]="cardHolderName"
-      [cardExpiryYear]="cardExpiryYear"
-      [cardExpiryMonth]="cardExpiryMonth"
-    ></app-credit-card-component>
-  </div>
-
-  <!-- <button
-    type="button"
-    class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
-    routerLink="/exercise-2"
+<div class="flex justify-center items-center">
+  <div
+    class="bg-white border p-8 rounded-lg shadow-lg w-[900px] flex gap-6 items-center"
   >
-    Next Exercise
-  </button> -->
+    <!-- Left Side: Form -->
+    <div class="w-1/2">
+      <h2 class="text-2xl font-bold mb-4 text-center">Credit Card Form</h2>
+
+      <form [formGroup]="creditCardForm" (ngSubmit)="handleSubmit()">
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700">Card Holder Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            formControlName="name"
+            placeholder="Card Holder's Name"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="ccnumber" class="block text-gray-700"
+            >Credit Card Number</label
+          >
+          <input
+            type="text"
+            id="ccnumber"
+            name="ccnumber"
+            class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            formControlName="ccnumber"
+            inputmode="numeric"
+            appMaskCcNumber
+            appDisableCutCopyPaste
+            placeholder="#### - #### - #### - ####"
+            maxlength="16"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="cvv" class="block text-gray-700">CVV</label>
+          <input
+            type="text"
+            id="cvv"
+            name="cvv"
+            class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            formControlName="cvv"
+            inputmode="numeric"
+            appDisableCutCopyPaste
+            maxlength="3"
+            placeholder="###"
+          />
+        </div>
+
+        <div class="flex gap-4">
+          <div class="mb-4 w-1/2">
+            <label for="expiryMonth" class="block text-gray-700"
+              >Expiry Month</label
+            >
+            <input
+              type="text"
+              id="expiryMonth"
+              name="expiryMonth"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+              formControlName="expiryMonth"
+              inputmode="numeric"
+              appDisableCutCopyPaste
+              maxlength="2"
+              placeholder="MM"
+            />
+          </div>
+          <div class="mb-4 w-1/2">
+            <label for="expiryYear" class="block text-gray-700"
+              >Expiry Year</label
+            >
+            <input
+              type="text"
+              id="expiryYear"
+              name="expiryYear"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+              formControlName="expiryYear"
+              inputmode="numeric"
+              appDisableCutCopyPaste
+              maxlength="4"
+              placeholder="YYYY"
+            />
+          </div>
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
+            [class]="!creditCardForm.valid ? 'opacity-40' : 'opacity-100'"
+            [disabled]="!creditCardForm.valid"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Right Side: Credit Card Preview -->
+    <div class="w-1/2 flex justify-center">
+      <div class="w-full">
+        <app-credit-card-component
+          [cardNumber]="cardNumber"
+          [cardHolderName]="cardHolderName"
+          [cardExpiryYear]="cardExpiryYear"
+          [cardExpiryMonth]="cardExpiryMonth"
+          [cardCVV]="cardCVV"
+        ></app-credit-card-component>
+      </div>
+    </div>
+  </div>
 </div>

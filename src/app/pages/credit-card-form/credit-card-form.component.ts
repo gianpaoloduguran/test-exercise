@@ -77,4 +77,8 @@ export class CreditCardFormComponent {
   get cardHolderName() {
     return this.creditCardForm.value.name || 'Card Holder Name';
   }
+
+  get cardCVV() {
+    return this.creditCardForm.value.cvv || '###';
+  }
 }
