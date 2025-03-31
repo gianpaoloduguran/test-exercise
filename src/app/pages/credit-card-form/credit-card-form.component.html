@@ -18,6 +18,15 @@
             formControlName="name"
             placeholder="Card Holder's Name"
           />
+          @if (creditCardForm.get("name")?.invalid &&
+          (creditCardForm.get("name")?.dirty ||
+          creditCardForm.get("name")?.touched)){
+          <div class="text-sm text-red-700">
+            @if (creditCardForm.get("name")?.hasError('required')) {
+            <div>Card number is required.</div>
+            }
+          </div>
+          }
         </div>
 
         <div class="mb-4">
@@ -36,6 +45,17 @@
             placeholder="#### - #### - #### - ####"
             maxlength="16"
           />
+          @if (creditCardForm.get("ccnumber")?.invalid &&
+          (creditCardForm.get("ccnumber")?.dirty ||
+          creditCardForm.get("ccnumber")?.touched)){
+          <div class="text-sm text-red-700">
+            @if (creditCardForm.get("ccnumber")?.hasError('required')) {
+            <div>Card number is required.</div>
+            } @if (creditCardForm.get("ccnumber")?.hasError('pattern')) {
+            <div>Card number is invalid.</div>
+            }
+          </div>
+          }
         </div>
 
         <div class="mb-4">
@@ -51,6 +71,17 @@
             maxlength="3"
             placeholder="###"
           />
+          @if (creditCardForm.get("cvv")?.invalid &&
+          (creditCardForm.get("cvv")?.dirty ||
+          creditCardForm.get("cvv")?.touched)){
+          <div class="text-sm text-red-700">
+            @if (creditCardForm.get("cvv")?.hasError('required')) {
+            <div>CVV is required.</div>
+            } @if (creditCardForm.get("cvv")?.hasError('pattern')) {
+            <div>CVV is invalid.</div>
+            }
+          </div>
+          }
         </div>
 
         <div class="flex gap-4">
@@ -69,6 +100,17 @@
               maxlength="2"
               placeholder="MM"
             />
+            @if (creditCardForm.get("expiryMonth")?.invalid &&
+            (creditCardForm.get("expiryMonth")?.dirty ||
+            creditCardForm.get("expiryMonth")?.touched)){
+            <div class="text-sm text-red-700">
+              @if (creditCardForm.get("expiryMonth")?.hasError('required')) {
+              <div>Month is required.</div>
+              } @if (creditCardForm.get("expiryMonth")?.hasError('pattern')) {
+              <div>Month is invalid.</div>
+              }
+            </div>
+            }
           </div>
           <div class="mb-4 w-1/2">
             <label for="expiryYear" class="block text-gray-700"
@@ -85,6 +127,17 @@
               maxlength="4"
               placeholder="YYYY"
             />
+            @if (creditCardForm.get("expiryYear")?.invalid &&
+            (creditCardForm.get("expiryYear")?.dirty ||
+            creditCardForm.get("expiryYear")?.touched)){
+            <div class="text-sm text-red-700">
+              @if (creditCardForm.get("expiryYear")?.hasError('required')) {
+              <div>Year is required.</div>
+              } @if (creditCardForm.get("expiryYear")?.hasError('pattern')) {
+              <div>Year is invalid.</div>
+              }
+            </div>
+            }
           </div>
         </div>
 

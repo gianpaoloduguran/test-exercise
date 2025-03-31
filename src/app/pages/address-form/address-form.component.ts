@@ -1,5 +1,4 @@
-import { NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -58,9 +57,7 @@ export class AddressFormComponent {
   submitForm() {
     console.log('test', this.addressForm.value);
     // Format this
-    alert(
-      `Hello ${this.addressForm.value.name} your address is submitted.'+ "\n Addresses are: ${this.addressForm.value.fields[0].street}`
-    );
+    alert(`Hello ${this.addressForm.value.name} your address is submitted.`);
   }
   get name() {
     return this.addressForm.get('name');

@@ -38,21 +38,26 @@ export class CreditCardFormComponent {
   maskCCNumberDirective!: MaskCcNumberDirective;
   creditCardForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    ccnumber: new FormControl('', Validators.required),
-    cvv: new FormControl('', Validators.required),
-    expiryMonth: new FormControl('', Validators.required),
-    expiryYear: new FormControl('', Validators.required),
+    ccnumber: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[0-9]{16}$'),
+    ]),
+    cvv: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[0-9]{3}$'),
+    ]),
+    expiryMonth: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[0-9]{2}$'),
+    ]),
+    expiryYear: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[0-9]{4}$'),
+    ]),
   });
   creditCardNumber = '';
   handleSubmit() {
-    var cc = this.creditCardForm.value.ccnumber;
-    var expiryMonth = this.creditCardForm.value.expiryMonth;
-    var expiryYear = this.creditCardForm.value.expiryYear;
-    if (cc) {
-      cc = formatCardNumber(cc);
-    }
-    this.creditCardNumber;
-    alert(cc + ' | ' + this.creditCardForm.value.ccnumber + '|' + expiryMonth);
+    alert(`Credit Card Data submitted`);
   }
   get cardNumber() {
     var cc = this.creditCardForm.value.ccnumber;
